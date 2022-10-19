@@ -1,9 +1,12 @@
 package com.dedek.myapplication
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var progressDialog: ProgressDialog
     lateinit var recyclerView: RecyclerView
+    lateinit var btninputProduk : Button
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,6 +38,12 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.RvProduk)
 
+        btninputProduk = findViewById(R.id.btnToInput)
+
+        btninputProduk.setOnClickListener {
+            val intent = Intent(this,InputProduk::class.java)
+            startActivity(intent)
+        }
 
         LoadDataProduk("active")
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@android:color/background_light"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/IvItemProduk"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/bni" />
+
+    <TextView
+        android:id="@+id/TvNamaProduk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Buah Mangga"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/TvHargaProduk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Rp.20000"
+        android:textSize="20sp" />
+</LinearLayout>

@@ -10,15 +10,17 @@
     >
 
     <EditText
+        android:id="@+id/EtInputNamaProduk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input Produk"
+        android:hint="Input Nama Produk"
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp" />
 
     <EditText
+        android:id="@+id/EtInputHarga"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Input Harga"
@@ -26,15 +28,27 @@
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp" />
+    <Button
+        android:id="@+id/BtnPilih"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:text="Pilih  Gambar"/>
+
 
     <ImageView
-        android:layout_margin="@dimen/_10sdp"
+        android:id="@+id/IvImgproduk"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
-        android:src="@drawable/bni"/>
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_minus10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:src="@drawable/bni" />
 
     <Button
-
+        android:id="@+id/BtnKirim"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                         val data = Gson().fromJson(p0.toString(), ProdukModel::class.java).data
 
                         if (data != null) {
-
+//ggg
                             val produkAdapter = ProdukAdapter(this@MainActivity,
                                 data as MutableList<ProdukModel.Data>
                             )

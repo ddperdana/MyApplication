@@ -8,7 +8,7 @@ data class ProdukModel(
     data class Data(
         val harga: Int,
         val id: Int,
-        val image: String,
+        var image: String,
         val nama_produk: String,
         val status: String
     )

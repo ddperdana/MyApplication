@@ -69,7 +69,9 @@ class MainActivity : AppCompatActivity() {
 
                         if (data != null) {
 
-                            val produkAdapter = ProdukAdapter(this@MainActivity, data)
+                            val produkAdapter = ProdukAdapter(this@MainActivity,
+                                data as MutableList<ProdukModel.Data>
+                            )
                             recyclerView.apply {
                                adapter = produkAdapter
                                 layoutManager = GridLayoutManager(this@MainActivity, 2)

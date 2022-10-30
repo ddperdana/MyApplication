@@ -45,7 +45,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        LoadDataProduk("active")
+        val status = true
+        if (status){
+            LoadDataProduk("active")
+
+        }
+
+
+
 
 
     }
@@ -55,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         AndroidNetworking.post("http://belipulsabeta.purja.web.id/public/api/produk")
             .addHeaders("Authorization","Bearer01USgSmbrZo6UdFd")
             .addBodyParameter("status",status)
+            .addBodyParameter("id","1")
             .setPriority(Priority.IMMEDIATE)
             .build()
             .getAsJSONObject(object  : JSONObjectRequestListener{
@@ -68,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                         val data = Gson().fromJson(p0.toString(), ProdukModel::class.java).data
 
                         if (data != null) {
-//ggg
+
                             val produkAdapter = ProdukAdapter(this@MainActivity,
                                 data as MutableList<ProdukModel.Data>
                             )

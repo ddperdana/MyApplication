@@ -20,6 +20,7 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONObjectRequestListener
 import com.bumptech.glide.Glide
 import com.dedek.myapplication.EditProduk
+import com.dedek.myapplication.Helper.MyUtilities
 import com.dedek.myapplication.R
 import com.dedek.myapplication.model.ProdukModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -35,8 +36,9 @@ class ProdukAdapter(val context: Context, var listItemMenu: MutableList<ProdukMo
                 .load(Uri.parse(produks.image))
                 .placeholder(R.drawable.bni)
                 .into(itemView.findViewById(R.id.IvItemProduk))
-            itemView.findViewById<TextView>(R.id.TvHargaProduk).setText(produks.harga.toString())
+            itemView.findViewById<TextView>(R.id.TvHargaProduk).setText(MyUtilities.numberToCurrency(produks.harga))
             itemView.findViewById<TextView>(R.id.TvNamaProduk).setText(produks.nama_produk)
+
         }
 
     }

@@ -107,6 +107,13 @@ class EditProduk : AppCompatActivity() {
             return@setOnClickListener
         }
         binding.BtnKirim.setOnClickListener {
+            var nilai = 0
+
+            when (nilai) {
+                0 -> Toast.makeText(this, "ini nilai 0", Toast.LENGTH_SHORT).show()
+                1 -> Toast.makeText(this, "ini nilai 1", Toast.LENGTH_SHORT).show()
+                2 -> Toast.makeText(this, "ini nilai 2", Toast.LENGTH_SHORT).show()
+            }
             when{
                 binding.EtInputNamaProduk.text.toString().isEmpty() -> binding.EtInputNamaProduk.error = "Tidak Boleh Kosong !!"
                 binding.EtInputHarga.text.toString().isEmpty() -> binding.EtInputHarga.error = "Tidak Boleh Kosong !!"

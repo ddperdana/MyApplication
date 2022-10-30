@@ -3,12 +3,11 @@ package com.dedek.myapplication
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidnetworking.AndroidNetworking
@@ -24,7 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var progressDialog: ProgressDialog
     lateinit var recyclerView: RecyclerView
-    lateinit var btninputProduk : Button
+    lateinit var btninputProduk: Button
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,47 +41,60 @@ class MainActivity : AppCompatActivity() {
         btninputProduk = findViewById(R.id.btnToInput)
 
         btninputProduk.setOnClickListener {
-            val intent = Intent(this,InputProduk::class.java)
+            val intent = Intent(this, InputProduk::class.java)
             startActivity(intent)
         }
 
-        val status = true
-        if (status){
-            LoadDataProduk("active")
+        val status = false
 
+        //if satu line
+        if (status) hello() else kita()
+
+
+        if (status) {
+            LoadDataProduk("active")
+// status benar
+        } else {
+//status salah
         }
 
 
+    }
 
+    private fun kita() {
+        TODO("Not yet implemented")
+    }
 
-
+    private fun hello() {
+        TODO("Not yet implemented")
     }
 
     private fun LoadDataProduk(status: String) {
         progressDialog.show()
         AndroidNetworking.post("http://belipulsabeta.purja.web.id/public/api/produk")
-            .addHeaders("Authorization","Bearer01USgSmbrZo6UdFd")
-            .addBodyParameter("status",status)
-            .addBodyParameter("id","1")
+            .addHeaders("Authorization", "Bearer01USgSmbrZo6UdFd")
+            .addBodyParameter("status", status)
+            .addBodyParameter("id", "1")
             .setPriority(Priority.IMMEDIATE)
             .build()
-            .getAsJSONObject(object  : JSONObjectRequestListener{
+            .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(p0: JSONObject?) {
                     progressDialog.dismiss()
                     Log.d("produk", p0.toString())
                     val apiStatus = p0?.getInt("api_status")
                     val apiMessage = p0?.getString("api_message")
 
-                    if(apiStatus!!.equals(1)) {
+                    if (apiStatus!!.equals(1)) {
                         val data = Gson().fromJson(p0.toString(), ProdukModel::class.java).data
 
                         if (data != null) {
 
-                            val produkAdapter = ProdukAdapter(this@MainActivity,
+                            val produkAdapter = ProdukAdapter(
+                                this@MainActivity,
                                 data as MutableList<ProdukModel.Data>
                             )
                             recyclerView.apply {
-                               adapter = produkAdapter
+                                adapter = produkAdapter
                                 layoutManager = GridLayoutManager(this@MainActivity, 2)
                                 setHasFixedSize(true)
 

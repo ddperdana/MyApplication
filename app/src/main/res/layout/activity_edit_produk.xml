@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputProduk"
     android:orientation="vertical"
-    android:background="@drawable/img"
-    >
+    tools:context=".EditProduk">
 
     <EditText
         android:id="@+id/EtInputNamaProduk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input Nama Produk"
+        android:hint="Edit Nama Produk"
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -23,7 +21,7 @@
         android:id="@+id/EtInputHarga"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input Harga"
+        android:hint="Edit Harga"
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
@@ -53,10 +51,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAllCaps="false"
-        android:text="K i r i m"/>
-
-
-
-
+        android:text="Update"/>
 
 </LinearLayout>

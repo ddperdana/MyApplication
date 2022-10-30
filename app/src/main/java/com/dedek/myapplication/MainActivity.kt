@@ -45,7 +45,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        LoadDataProduk("active")
+        val status = true
+        if (status){
+            LoadDataProduk("active")
+
+        }
+
+
+
 
 
     }
@@ -55,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         AndroidNetworking.post("http://belipulsabeta.purja.web.id/public/api/produk")
             .addHeaders("Authorization","Bearer01USgSmbrZo6UdFd")
             .addBodyParameter("status",status)
+            .addBodyParameter("id","1")
             .setPriority(Priority.IMMEDIATE)
             .build()
             .getAsJSONObject(object  : JSONObjectRequestListener{
@@ -69,7 +77,9 @@ class MainActivity : AppCompatActivity() {
 
                         if (data != null) {
 
-                            val produkAdapter = ProdukAdapter(this@MainActivity, data)
+                            val produkAdapter = ProdukAdapter(this@MainActivity,
+                                data as MutableList<ProdukModel.Data>
+                            )
                             recyclerView.apply {
                                adapter = produkAdapter
                                 layoutManager = GridLayoutManager(this@MainActivity, 2)

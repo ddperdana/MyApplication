@@ -104,11 +104,11 @@ class InputProduk : AppCompatActivity() {
     }
 
     private fun uploadProduk() {
-        val FilePath : String = "${file}/${filename}}"
+        val FilePath : String = "${file}/${filename}"
         val namefile = File(FilePath)
 
         progressDialog?.show()
-        AndroidNetworking.upload("http://belipulsabeta.purja.web.id/public/api/createproduks")
+        AndroidNetworking.upload("http://belipulsabeta.purja.web.id/public/api/inputproduk")
             .addHeaders("Authorization","BearerLS0SzOHYS4yQ89dB")
             .addMultipartParameter("nama_produk",binding.EtInputNamaProduk.text.toString())
             .addMultipartParameter("harga",binding.EtInputHarga.text.toString())
